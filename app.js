@@ -1,5 +1,11 @@
 // app.js
-const API_SECRET_KEY = "ghp_1234567890abcdefghijklmnopqrstuvwxyz1234";
-const TEST_SECRET_KEY = "ghp_9876543210zyxwvutsrqponmlkjihgfedcba";
+
+const API_SECRET_KEY = process.env.API_SECRET_KEY;
+
+if (!API_SECRET_KEY) {
+    console.error("ERROR: No se encontró la variable API_SECRET_KEY");
+    process.exit(1);
+}
 
 console.log("Iniciando aplicación...");
+console.log("La clave API fue cargada mediante una variable de entorno.");
